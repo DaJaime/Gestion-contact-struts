@@ -29,3 +29,4 @@ hs_err_pid*
 # Other
 .settings
 .project
+.DS_Store
