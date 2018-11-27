@@ -3,8 +3,6 @@
 *.iml
 out/
 
-web/WEB-ING/lib/
-
 # Compiled class file
 *.class
 .classpath
@@ -19,7 +17,6 @@ web/WEB-ING/lib/
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
