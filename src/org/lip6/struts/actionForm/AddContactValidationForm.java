@@ -15,8 +15,10 @@ public class AddContactValidationForm extends ActionForm
 	private long id=0;
 	private String firstName=null; 
 	private String lastName=null; 
+	private String adresse=null;
 	private String email=null;
-
+	private String autre=null;
+	
 	public String getEmail() 
 	{ return email; }
 
@@ -25,7 +27,19 @@ public class AddContactValidationForm extends ActionForm
 
 	public String getLastName() 
 	{ return lastName;}
+	
+	public String getAdresse() 
+	{ return adresse;}
+	
+	public String getAutre() 
+	{ return autre;}
 
+	public void setAutre(String string) 
+	{ autre = string;}
+	
+	public void setAdresse(String string) 
+	{ adresse = string;}
+	
 	public void setEmail(String string) 
 	{ email = string;}
 
@@ -46,7 +60,9 @@ public class AddContactValidationForm extends ActionForm
 		this.id=0;
 		this.firstName=null;
 		this.lastName=null;
+		this.adresse=null;
 		this.email=null;
+		this.autre=null;
 	}
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
@@ -60,11 +76,6 @@ public class AddContactValidationForm extends ActionForm
 		if( getLastName()== null || getLastName().length() < 1 )
 		{ 
 			errors.add("last name",new ActionMessage("creation.ln.error.required")); 
-		}
-		
-		if( getEmail() == null || getEmail().length() < 1 )
-		{ 
-			errors.add("email", new ActionMessage("creation.email.error.required")); 
 		}
 		
 		return errors; 

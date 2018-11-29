@@ -31,12 +31,25 @@ Contact Id
 <html:text property="lastName" size="30" maxlength="30"/> </td>
 </tr>
 <tr>
+<td align="right"> Adresse
+</td>
+<td align="left">
+<html:text property="adresse" size="30" maxlength="30"/> </td>
+</tr>
+<tr>
 <td align="right">
             E-mail address
 </td>
 <td align="left">
 <html:text property="email" size="30" maxlength="30"/> </td>
-</tr> <tr>
+</tr>
+<tr>
+<td align="right"> Autre
+</td>
+<td align="left">
+<html:text property="autre" size="30" maxlength="30"/> </td>
+</tr>
+<tr>
 <td align="right"> <html:submit>Save</html:submit>
 </td> </tr>
   </table>

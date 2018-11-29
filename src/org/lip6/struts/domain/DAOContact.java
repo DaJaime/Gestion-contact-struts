@@ -17,7 +17,7 @@ public class DAOContact
 	private final static String RESOURCE_JDBC = "java:comp/env/jdbc/ContactBD";
 	
 	
-	public String addContact(final long id, final String firstName, final String lastName, final String email) 
+	public String addContact(final long id, final String firstName, final String lastName, final String adresse, final String email, final String autre) 
 	{
 		try 
 		{
@@ -27,11 +27,13 @@ public class DAOContact
 			final Connection lConnection = lDataSource.getConnection();
 			 // adding a new contact
 			final PreparedStatement lPreparedStatementCreation = lConnection.prepareStatement
-					("INSERT INTO CONTACT(ContactId, ContactNom, ContactPrenom, ContactAdresse, ContactMail, ContactAutre) VALUES(?, ?, ?, ?)");
+					("INSERT INTO CONTACT(ContactId, ContactNom, ContactPrenom, ContactAdresse, ContactMail, ContactAutre) VALUES(?, ?, ?, ?, ?, ?)");
 			lPreparedStatementCreation.setLong(1, id)
 			; lPreparedStatementCreation.setString(2, firstName);
 			lPreparedStatementCreation.setString(3, lastName);
-			lPreparedStatementCreation.setString(4, email);
+			lPreparedStatementCreation.setString(4, adresse);
+			lPreparedStatementCreation.setString(5, email);
+			lPreparedStatementCreation.setString(6, autre);
 			lPreparedStatementCreation.executeUpdate();
 			return null;
 		}

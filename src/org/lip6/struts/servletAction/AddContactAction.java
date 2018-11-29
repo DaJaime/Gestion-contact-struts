@@ -22,10 +22,12 @@ public class AddContactAction extends Action
 		final long id = lForm.getId();
 		final String firstName = lForm.getFirstName();
 		final String lastName = lForm.getLastName();
+		final String adresse = lForm.getAdresse();
 		final String email = lForm.getEmail();
+		final String autre = lForm.getAutre();
         // create a new Contact
 		final ContactService contactService = new ContactService();
-		final String lError = contactService.addContact(id, firstName, lastName, email);
+		final String lError = contactService.addContact(id, firstName, lastName, adresse, email, autre);
 		
 		if(lError == null)
 		{
