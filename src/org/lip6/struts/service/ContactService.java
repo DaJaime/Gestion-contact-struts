@@ -17,6 +17,12 @@ public class ContactService
 		final String lError = dao.addContact(id, firstName, lastName, adresse, email, autre);
 		return lError;
 	}
+	
+	public String deleteContact(final long id) 
+	{
+		final String lError = dao.deleteContact(id);
+		return lError;
+	}
 
 	
 }

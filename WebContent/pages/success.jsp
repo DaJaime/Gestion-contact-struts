@@ -3,5 +3,5 @@
 <head>
 <title><bean:message key="success"/></title> </head>
 <body>
-<bean:message key="contact.add"/> </body>
+<bean:message key="success"/> </body>
 </html:html>

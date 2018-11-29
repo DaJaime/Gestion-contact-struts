@@ -48,4 +48,28 @@ public class DAOContact
 			return "Erreur dans la requete SQL: " + e.getMessage();
 		} 
 	}
+	
+	public String deleteContact(long id){
+		try
+		{
+			final Context lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			 // delete a new contact
+			String requ = "DELETE FROM contact WHERE ContactId="+id;
+			lConnection.createStatement().executeUpdate(requ);
+			return null;
+		}
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans la suppression de la BDD : " + e.getMessage());
+			return "Erreur dans suppression de la BDD : " + e.getMessage();
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+			return "Erreur dans la requete SQL: " + e.getMessage();
+		} 
+	}
 }
