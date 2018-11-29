@@ -29,3 +29,7 @@ ADD FOREIGN KEY (FKTelephoneContactId) REFERENCES Contact(ContactId);
 
 ALTER TABLE Groupe
 ADD FOREIGN KEY (FKGroupeContactId) REFERENCES Contact(ContactId);
+
+desc Contact;
+desc Telephone;
+desc Groupe;

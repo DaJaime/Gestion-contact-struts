@@ -27,7 +27,7 @@ public class DAOContact
 			final Connection lConnection = lDataSource.getConnection();
 			 // adding a new contact
 			final PreparedStatement lPreparedStatementCreation = lConnection.prepareStatement
-					("INSERT INTO CONTACT(ID_CONTACT, FIRSTNAME, LASTNAME, EMAIL) VALUES(?, ?, ?, ?)");
+					("INSERT INTO CONTACT(ContactId, ContactNom, ContactPrenom, ContactAdresse, ContactMail, ContactAutre) VALUES(?, ?, ?, ?)");
 			lPreparedStatementCreation.setLong(1, id)
 			; lPreparedStatementCreation.setString(2, firstName);
 			lPreparedStatementCreation.setString(3, lastName);
