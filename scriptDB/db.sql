@@ -6,8 +6,8 @@ CREATE TABLE Contact (
  ContactId INT NOT NULL AUTO_INCREMENT,
  ContactNom VARCHAR(255) NOT NULL,
  ContactPrenom VARCHAR(255) NOT NULL,
- ContactAdresse VARCHAR(255) NOT NULL,
- ContactMail VARCHAR(255) NOT NULL,
+ ContactAdresse VARCHAR(255),
+ ContactMail VARCHAR(255),
  ContactAutre VARCHAR(255),
  PRIMARY KEY (ContactId));
 

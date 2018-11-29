@@ -55,6 +55,4 @@ public class Contact
 	public void setId(long l)
 	{ id = l; }
 	
-	
-	
 }
