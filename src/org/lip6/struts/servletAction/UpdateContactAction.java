@@ -6,15 +6,15 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.lip6.struts.actionForm.AddContactValidationForm;
+import org.lip6.struts.actionForm.UpdateContactValidationForm;
 import org.lip6.struts.service.ContactService;
 
-public class AddContactAction extends Action
+public class UpdateContactAction extends Action
 {
 	public ActionForward execute(final ActionMapping pMapping, ActionForm pForm,
 			final HttpServletRequest pRequest,final HttpServletResponse pResponse)
 	{
-		final AddContactValidationForm lForm=(AddContactValidationForm)pForm;
+		final UpdateContactValidationForm lForm=(UpdateContactValidationForm)pForm;
 		final long id = lForm.getId();
 		final String firstName = lForm.getFirstName();
 		final String lastName = lForm.getLastName();
@@ -23,7 +23,7 @@ public class AddContactAction extends Action
 		final String autre = lForm.getAutre();
         // create a new Contact
 		final ContactService contactService = new ContactService();
-		final String lError = contactService.addContact(id, firstName, lastName, adresse, email, autre);
+		final String lError = contactService.updateContact(id, firstName, lastName, adresse, email, autre);
 		
 		if(lError == null)
 		{
