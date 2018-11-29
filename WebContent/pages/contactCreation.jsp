@@ -4,6 +4,7 @@
 <%@ taglib prefix="nested" uri="http://struts.apache.org/tags-nested" %>
 <html:html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <title><bean:message key="add.contact"/></title> <html:base/>
 </head>
 <body bgcolor="white">

@@ -3,6 +3,7 @@
 <%@ taglib prefix="bean" uri="http://struts.apache.org/tags-bean" %>
 <%@ taglib prefix="logic" uri="http://struts.apache.org/tags-logic" %> <%@ taglib prefix="nested" uri="http://struts.apache.org/tags-nested" %> <html:html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <title><bean:message key="main.page.title"/></title>
       </head>
       <body>
