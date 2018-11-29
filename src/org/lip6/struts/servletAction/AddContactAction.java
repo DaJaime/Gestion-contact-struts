@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.lip6.struts.actionForm.AddContactValidationForm;
 import org.lip6.struts.domain.DAOContact;
+import org.lip6.struts.service.ContactService;
 
 public class AddContactAction extends Action
 {
@@ -23,8 +24,8 @@ public class AddContactAction extends Action
 		final String lastName = lForm.getLastName();
 		final String email = lForm.getEmail();
         // create a new Contact
-		final DAOContact lDAOContact = new DAOContact();
-		final String lError = lDAOContact.addContact(id, firstName, lastName, email);
+		final ContactService contactService = new ContactService();
+		final String lError = contactService.addContact(id, firstName, lastName, email);
 		
 		if(lError == null)
 		{
