@@ -1,5 +1,7 @@
 package org.lip6.struts.domain;
 
+import java.util.List;
+
 public class Contact 
 {
 	
@@ -7,6 +9,9 @@ public class Contact
 	private String firstName;
 	private String lastName;
 	private String email;
+	private List<String> tel;
+	private String adresse;
+	private String autre;
 
 	public String getEmail()
 	{ return email; }
@@ -17,6 +22,15 @@ public class Contact
 	public String getLastName()
 	{ return lastName; }
 	
+	public List<String> getTel()
+	{ return tel; }
+	
+	public String getAdresse()
+	{ return adresse; }
+	
+	public String getAutre()
+	{ return autre; }
+	
 	public void setEmail(String string)
 	{ email = string;}
 
@@ -25,6 +39,15 @@ public class Contact
 
 	public void setLastName(String string)
 	{ lastName = string;}
+	
+	public void setAdresse(String string)
+	{ adresse = string;}
+	
+	public void setAutre(String string)
+	{ autre = string;}
+	
+	public void setTel(List<String> list)
+	{ tel = list;}
 
 	public long getId()
 	{ return id; }
