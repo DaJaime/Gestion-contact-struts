@@ -25,4 +25,9 @@ public class ContactService
 	}
 
 	
+	public String updateContact(final long id, final String firstName, final String lastName, final String adresse, final String email, final String autre)
+	{
+		final String lError = dao.updateContact(id, firstName, lastName, adresse, email, autre);
+		return lError;
+	}
 }

@@ -6,11 +6,9 @@
 <title><bean:message key="main.page.title"/></title>
       </head>
       <body>
-<h1><bean:message key="main.page.menu"/></h1> <h4><a href="ContactCreation.do"><bean:message
-key="main.addcontact.link"/></a></h4><br> 
-
-<h1><bean:message key="supp.contact"/></h1> <h4><a href="ContactSuppression.do"><bean:message
-key="supp.contact"/></a></h4><br> 
-
+		<h1><bean:message key="main.page.menu"/></h1> 
+		<h4><a href="ContactCreation.do"><bean:message key="main.addcontact.link"/></a></h4><br> 
+		<h4><a href="ContactModification.do"><bean:message key="main.updatecontact.link"/></a></h4><br>
+        <h4><a href="ContactSuppression.do"><bean:message key="supp.contact"/></a></h4><br> 
 </body>
    </html:html>

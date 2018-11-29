@@ -2,11 +2,7 @@ package org.lip6.struts.domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -71,5 +67,40 @@ public class DAOContact
 			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
 			return "Erreur dans la requete SQL: " + e.getMessage();
 		} 
+	}
+	
+	public String updateContact(final long id, final String firstName, final String lastName, final String adresse, final String email, final String autre)
+	{
+		Context lContext;
+		try 
+		{
+			lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			// Update contact
+			final PreparedStatement lPreparedStatementCreation = lConnection.prepareStatement
+					("update CONTACT set ContactPrenom=?, ContactNom=?, ContactAdresse=?, ContactMail=?, ContactAutre=?"
+							+ " where ContactId=?");
+			lPreparedStatementCreation.setString(1, firstName);
+			lPreparedStatementCreation.setString(2, lastName);
+			lPreparedStatementCreation.setString(3, adresse);
+			lPreparedStatementCreation.setString(4, email);
+			lPreparedStatementCreation.setString(5, autre);
+			lPreparedStatementCreation.setLong(6, id);
+			lPreparedStatementCreation.executeUpdate();
+			return null;
+		} 
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans l'ajout de la BDD : " + e.getMessage());
+			return "Erreur dans la modification de la BDD : " + e.getMessage();
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+			return "Erreur dans la requete SQL: " + e.getMessage();
+		} 
+		
 	}
 }

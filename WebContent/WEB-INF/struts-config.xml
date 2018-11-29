@@ -4,23 +4,36 @@
 
 <struts-config>
 	<form-beans>
+	    <!-- Ajout contact -->
 		<form-bean name="AddContactValidationForm" type="org.lip6.struts.actionForm.AddContactValidationForm"/>
 		<!-- Suppression contact -->
 		<form-bean name="SuppContactValidationForm" type="org.lip6.struts.actionForm.SuppContactValidationForm"/>
+		<!-- Modification contact -->
+		<form-bean name="UpdateContactValidationForm" type="org.lip6.struts.actionForm.UpdateContactValidationForm"/>
 	</form-beans>
 	
 	<action-mappings>
+	
+	<!-- ========== Ajout d'un contact =========================== -->
 	<action path="/ContactCreation" forward="/pages/contactCreation.jsp" />
 	<action path="/AddContact" type="org.lip6.struts.servletAction.AddContactAction" name="AddContactValidationForm" scope="request"
 			input="/pages/contactCreation.jsp">
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
-	
+	<!-- ========== Suppression d'un contact =========================== -->
 	<action path="/ContactSuppression" forward="/pages/contactSuppression.jsp" />
 	<action path="/SuppContact" type="org.lip6.struts.servletAction.SuppContactAction" name="SuppContactValidationForm" scope="request"
 			input="/pages/contactSuppression.jsp">
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
+	
+	<!-- ========== Mofication d'un contact =========================== -->
+	<action path="/ContactModification" forward="/pages/contactModification.jsp" /><!-- relie les .do aux .jsp -->
+	<action path="/UpdateContact" type="org.lip6.struts.servletAction.UpdateContactAction" name="UpdateContactValidationForm" scope="request"
+			input="/pages/contactModification.jsp">
+		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
+	</action>
+	
 	</action-mappings>
 	
 	
