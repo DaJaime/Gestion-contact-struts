@@ -13,8 +13,8 @@
 <body>
 <html:form action="/SuppContact">
 <html:errors/>
-	Id: <input type="text" name="id" size="25">
-	<p></p>
+	Id: <input type="text" name="id" size="25">	<p></p>
+
 	<html:submit>Supprimer</html:submit>
 </html:form>
 

@@ -2,6 +2,7 @@ package org.lip6.struts.domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,6 +16,7 @@ public class DAOContact
 	
 	public String addContact(final long id, final String firstName, final String lastName, final String adresse, final String email, final String autre) 
 	{
+		System.out.println("---------------------------------------------------DAO");
 		try 
 		{
 			final Context lContext = new InitialContext();
@@ -103,4 +105,29 @@ public class DAOContact
 		} 
 		
 	}
+	
+	public ResultSet afficherContact(){
+		try
+		{
+			final Context lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			 // delete a new contact
+			String requ = "SELECT * FROM contact";
+			ResultSet result=lConnection.createStatement().executeQuery(requ);
+			return result;
+		}
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans la lecture de la BDD : " + e.getMessage());
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+		}
+		return null;
+	}
+	
+	
 }
