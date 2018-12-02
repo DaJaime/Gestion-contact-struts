@@ -10,6 +10,8 @@
 		<form-bean name="SuppContactValidationForm" type="org.lip6.struts.actionForm.SuppContactValidationForm"/>
 		<!-- Modification contact -->
 		<form-bean name="UpdateContactValidationForm" type="org.lip6.struts.actionForm.UpdateContactValidationForm"/>
+		<!-- Afficher contact -->
+		<form-bean name="AfficherContactValidationForm" type="org.lip6.struts.actionForm.AfficherContactValidationForm"/>
 	</form-beans>
 	
 	<action-mappings>
@@ -32,6 +34,13 @@
 	<action path="/UpdateContact" type="org.lip6.struts.servletAction.UpdateContactAction" name="UpdateContactValidationForm" scope="request"
 			input="/pages/contactModification.jsp">
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
+	</action>
+	
+	<!-- ========== Afficher un contact =========================== -->
+	<action path="/ContactAfficher" forward="/pages/contactAfficher.jsp" /><!-- relie les .do aux .jsp -->
+	<action path="/AfficherContact" type="org.lip6.struts.servletAction.AfficherContactAction" name="AfficherContactValidationForm" scope="request"
+			input="/pages/contactAfficher.jsp">
+		<forward name="success" path="/pages/contactAfficher.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
 	
 	</action-mappings>
