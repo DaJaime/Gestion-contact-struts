@@ -45,7 +45,7 @@ public class ContactService
 			return liste;
 		}
 		while (resu.next()) {              
-			   int i = 1;
+			   int i = 2;
 			   while(i <= 6) {
 			        liste.add(resu.getString(i++));
 			   }

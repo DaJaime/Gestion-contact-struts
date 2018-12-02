@@ -11,10 +11,33 @@
 </head>
 <body>
 
+<table>
+<tr>
+	<th>Nom</th>
+	<th>Prenom</th>
+	<th>Adresse</th>
+	<th>Mail</th>
+	<th>Note</th>
+</tr>
 <% 
 List<String> liste = new ArrayList<String>();
 liste = (ArrayList<String>) request.getAttribute("liste");
-%>
+Iterator<String> it = liste.iterator();
+int cpt = 0;
+out.println("<tr>");
+while (it.hasNext()) {
+	if (cpt == 5){
+		out.println("</tr>");
+		out.println("<tr>");
+		cpt = 0;
+	}
+	out.println("<td>"+it.next()+"</td>");
+	cpt ++;
+ 
+}
+out.println("</tr>");
+	%>
+</table>
 
 
 </body>

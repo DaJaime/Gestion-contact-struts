@@ -50,9 +50,7 @@ public class AfficherContactAction extends Action
 			//RequestDispatcher rd = pRequest.getRequestDispatcher( "contactAfficher.jsp" );
 			//rd.include(pRequest, pResponse);
 			//rd.forward(pRequest, pResponse);
-			ActionRedirect redirect = new ActionRedirect(pMapping.findForward("success"));
-			redirect.addParameter("liste", liste);
-			return redirect;
+			return pMapping.findForward("success");
 		}
 	}
 }
