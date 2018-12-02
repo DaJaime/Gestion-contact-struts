@@ -12,7 +12,6 @@ public class AddContactValidationForm extends ActionForm
 {
 	private static final long serialVersionUID = 1L;
 	
-	private long id=0;
 	private String firstName=null; 
 	private String lastName=null; 
 	private String adresse=null;
@@ -48,16 +47,9 @@ public class AddContactValidationForm extends ActionForm
 
 	public void setLastName(String string) 
 	{ lastName = string; }
-
-	public long getId()
-	{ return id; }
-
-	public void setId(long l)
-	{ id = l; }
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) 
 	{ 
-		this.id=0;
 		this.firstName=null;
 		this.lastName=null;
 		this.adresse=null;

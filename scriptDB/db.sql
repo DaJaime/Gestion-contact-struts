@@ -20,7 +20,7 @@ CREATE TABLE Telephone (
 
 CREATE TABLE Groupe (
  GroupeId INT NOT NULL AUTO_INCREMENT,
- GroupeNom INT(10) NOT NULL,
+ GroupeNom VARCHAR(255) NOT NULL,
  FKGroupeContactId INT NOT NULL,
  PRIMARY KEY (GroupeId));
 

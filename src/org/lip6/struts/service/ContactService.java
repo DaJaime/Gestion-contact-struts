@@ -17,10 +17,12 @@ public class ContactService
 		
 	}
 	
-	public String addContact(final long id, final String firstName, final String lastName, final String adresse, final String email, final String autre) 
+	public String addContact(final String firstName, final String lastName, final String adresse, final String email, final String autre) 
 	{
 		System.out.println("Service");
-		final String lError = dao.addContact(id, firstName, lastName, adresse, email, autre);
+		final String lError = dao.addContact(firstName, lastName, adresse, email, autre);
+		GroupeService gs = new GroupeService();
+		//gs.addContact(id, "All");
 		return lError;
 	}
 	
@@ -38,7 +40,6 @@ public class ContactService
 	}
 	
 	public List<String> afficherContact() throws SQLException{
-		System.out.println("Service");
 		List<String> liste = new ArrayList<String>();
 		final ResultSet resu = dao.afficherContact();
 		if (resu == null){
@@ -50,9 +51,6 @@ public class ContactService
 			        liste.add(resu.getString(i++));
 			   }
 			}
-		System.out.println(liste.size());
-		System.out.println(liste.get(0));
-		System.out.println(liste.get(1));
 		return liste;
 	}
 }

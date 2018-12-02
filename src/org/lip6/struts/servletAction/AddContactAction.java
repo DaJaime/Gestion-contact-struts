@@ -15,7 +15,6 @@ public class AddContactAction extends Action
 			final HttpServletRequest pRequest,final HttpServletResponse pResponse)
 	{
 		final AddContactValidationForm lForm=(AddContactValidationForm)pForm;
-		final long id = lForm.getId();
 		final String firstName = lForm.getFirstName();
 		final String lastName = lForm.getLastName();
 		final String adresse = lForm.getAdresse();
@@ -23,7 +22,7 @@ public class AddContactAction extends Action
 		final String autre = lForm.getAutre();
         // create a new Contact
 		final ContactService contactService = new ContactService();
-		final String lError = contactService.addContact(id, firstName, lastName, adresse, email, autre);
+		final String lError = contactService.addContact(firstName, lastName, adresse, email, autre);
 		
 		if(lError == null)
 		{

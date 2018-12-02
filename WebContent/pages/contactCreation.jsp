@@ -15,12 +15,6 @@
 <td align="center" colspan="2">
 <font size="4">Please Enter the Following Details</font> </tr>
 <tr>
-<td align="right">
-Contact Id
-</td>
-<td align="left">
-<html:text property="id" size="30" maxlength="30"/> </td>
-</tr> <tr>
 <td align="right"> First Name
 </td>
 <td align="left">
