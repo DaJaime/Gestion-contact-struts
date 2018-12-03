@@ -11,6 +11,7 @@
 		<h4><a href="ContactCreation.do"><bean:message key="main.addcontact.link"/></a></h4><br> 
 		<h4><a href="ContactModification.do"><bean:message key="main.updatecontact.link"/></a></h4><br>
         <h4><a href="ContactSuppression.do"><bean:message key="supp.contact"/></a></h4><br>
+        <h4><a href="GroupeCreation.do"><bean:message key="main.addgroupe.link"/></a></h4><br> 
 		<html:form action="/AfficherContact">
 <html:errors/>
 	<html:submit>Afficher contact</html:submit>

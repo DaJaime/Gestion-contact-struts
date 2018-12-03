@@ -11,10 +11,15 @@ public class GroupeService {
 		
 	}
 	
-	public String addContact(final long idContact, final String nomGroupe) 
+	public String addGroupe(String name) 
 	{
-		System.out.println("Service");
-		final String lError = dao.addContact(idContact, nomGroupe);
+		final String lError = dao.addGroupe(name);
+		return lError;
+	}
+	
+	public String addContactAllGroupe(String idContact) 
+	{
+		final String lError = dao.addContactAllGroupe(idContact);
 		return lError;
 	}
 

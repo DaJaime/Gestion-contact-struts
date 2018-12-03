@@ -20,15 +20,23 @@ CREATE TABLE Telephone (
 
 CREATE TABLE Groupe (
  GroupeId INT NOT NULL AUTO_INCREMENT,
- GroupeNom VARCHAR(255) NOT NULL,
+ FKGroupeNameId INT NOT NULL,
  FKGroupeContactId INT NOT NULL,
  PRIMARY KEY (GroupeId));
+ 
+ CREATE TABLE GroupeName (
+ GroupeNameId INT NOT NULL AUTO_INCREMENT,
+ GroupeNom VARCHAR(255) NOT NULL,
+ PRIMARY KEY (GroupeNameId));
 
 ALTER TABLE Telephone
 ADD FOREIGN KEY (FKTelephoneContactId) REFERENCES Contact(ContactId);
 
 ALTER TABLE Groupe
 ADD FOREIGN KEY (FKGroupeContactId) REFERENCES Contact(ContactId);
+ADD FOREIGN KEY (FKGroupeNameId) REFERENCES GroupeName(GroupeNameId);
+
+INSERT INTO GroupeName(GroupeNom) VALUES("ALL");
 
 desc Contact;
 desc Telephone;

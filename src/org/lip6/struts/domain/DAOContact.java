@@ -31,7 +31,11 @@ public class DAOContact
 			lPreparedStatementCreation.setString(4, email);
 			lPreparedStatementCreation.setString(5, autre);
 			lPreparedStatementCreation.executeUpdate();
-			return null;
+			//récupère l'id de contact inséré
+			String requ = "SELECT ContactId FROM contact where ContactId = (select MAX(ContactId) from contact)";
+			ResultSet result=lConnection.createStatement().executeQuery(requ);
+			result.next();
+			return result.getString(1);
 		}
 		catch (NamingException e)
 		{

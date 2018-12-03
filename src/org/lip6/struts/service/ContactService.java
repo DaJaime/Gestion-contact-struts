@@ -20,9 +20,10 @@ public class ContactService
 	public String addContact(final String firstName, final String lastName, final String adresse, final String email, final String autre) 
 	{
 		System.out.println("Service");
-		final String lError = dao.addContact(firstName, lastName, adresse, email, autre);
+		String id = dao.addContact(firstName, lastName, adresse, email, autre);
 		GroupeService gs = new GroupeService();
-		//gs.addContact(id, "All");
+		final String lError = gs.addContactAllGroupe(id);
+		
 		return lError;
 	}
 	
