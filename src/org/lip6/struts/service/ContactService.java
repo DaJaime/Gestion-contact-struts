@@ -21,10 +21,8 @@ public class ContactService
 	{
 		System.out.println("Service");
 		String id = dao.addContact(firstName, lastName, adresse, email, autre);
-		GroupeService gs = new GroupeService();
-		final String lError = gs.addContactAllGroupe(id);
 		
-		return lError;
+		return id;
 	}
 	
 	public String deleteContact(final long id) 

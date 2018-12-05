@@ -1,11 +1,15 @@
 package org.lip6.struts.actionForm;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.lip6.struts.domain.Groupe;
 
 
 public class AddContactValidationForm extends ActionForm
@@ -17,7 +21,12 @@ public class AddContactValidationForm extends ActionForm
 	private String adresse=null;
 	private String email=null;
 	private String autre=null;
+	private String[]  idGroupes=null;
 	
+	
+	public String[] getIdGroupes(){
+		return idGroupes;
+	}
 	public String getEmail() 
 	{ return email; }
 
@@ -32,6 +41,10 @@ public class AddContactValidationForm extends ActionForm
 	
 	public String getAutre() 
 	{ return autre;}
+	
+	public void setIdGroupes(String[] tab){
+		idGroupes = tab;
+	}
 
 	public void setAutre(String string) 
 	{ autre = string;}
@@ -55,6 +68,7 @@ public class AddContactValidationForm extends ActionForm
 		this.adresse=null;
 		this.email=null;
 		this.autre=null;
+		this.idGroupes=null;
 	}
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
