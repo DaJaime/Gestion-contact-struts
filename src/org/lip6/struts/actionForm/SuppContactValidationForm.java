@@ -8,6 +8,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 public class SuppContactValidationForm extends ActionForm{
+
+	private static final long serialVersionUID = 1L;
 	private long id = 0;
 	
 	public long getId()

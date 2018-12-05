@@ -2,16 +2,11 @@ package org.lip6.struts.servletAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.Globals;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
-import org.apache.struts.action.ActionMessages;
-import org.lip6.struts.actionForm.AddContactValidationForm;
 import org.lip6.struts.actionForm.SuppContactValidationForm;
-import org.lip6.struts.domain.DAOContact;
 import org.lip6.struts.service.ContactService;
 
 public class SuppContactAction extends Action

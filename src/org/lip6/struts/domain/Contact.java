@@ -12,6 +12,20 @@ public class Contact
 	private List<String> tel;
 	private String adresse;
 	private String autre;
+	
+	public Contact(long id, String lastName, String firstName, String adresse, String email, String autre)
+	{
+		this.id= id;
+		this.lastName=lastName;
+		this.firstName=firstName;
+		this.adresse=adresse;
+		this.email=email;
+		this.autre=autre;
+	}
+
+	public Contact() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getEmail()
 	{ return email; }

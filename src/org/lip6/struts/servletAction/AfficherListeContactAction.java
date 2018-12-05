@@ -18,41 +18,39 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionRedirect;
 import org.lip6.struts.actionForm.AddContactValidationForm;
-import org.lip6.struts.actionForm.AfficherContactValidationForm;
 import org.lip6.struts.actionForm.AfficherListeContactValidationForm;
 import org.lip6.struts.actionForm.SuppContactValidationForm;
 import org.lip6.struts.domain.Contact;
 import org.lip6.struts.domain.DAOContact;
 import org.lip6.struts.service.ContactService;
 
-public class AfficherContactAction extends Action
+public class AfficherListeContactAction extends Action
 {
 	public ActionForward execute(final ActionMapping pMapping, ActionForm pForm,
 			final HttpServletRequest pRequest,final HttpServletResponse pResponse) throws ServletException, IOException
 	{
-		final AfficherContactValidationForm lForm=(AfficherContactValidationForm)pForm;
+		final AfficherListeContactValidationForm lForm=(AfficherListeContactValidationForm)pForm;
         // Suppression du contact
 		final ContactService contactService = new ContactService();
-		Contact c  = new Contact();
-		long id=0;
+		List<Contact> liste = new ArrayList<Contact>();
 		try 
 		{
-			c = contactService.afficherContact(id);
+			liste = contactService.afficherListeContact();
 		} 
 		catch (SQLException e) 
 		{
 			// TODO Auto-generated catch block
-			c = null;
+			liste = null;
 		}
 		
-		if(c.equals(null))
+		if(liste.size() == 0)
 		{
 			// if no exception is raised, forward "success" return pMapping.findForward("success");
 			return pMapping.findForward("error");
 		}
 		else
 		{
-			pRequest.setAttribute("contact", c);
+			pRequest.setAttribute("liste", liste);
 			//RequestDispatcher rd = pRequest.getRequestDispatcher( "contactAfficher.jsp" );
 			//rd.include(pRequest, pResponse);
 			//rd.forward(pRequest, pResponse);

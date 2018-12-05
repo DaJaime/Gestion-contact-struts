@@ -36,12 +36,20 @@
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
 	
-	<!-- ========== Afficher un contact =========================== -->
+	<!-- ========== Afficher liste contact =========================== -->
 	<action path="/ContactAfficher" forward="/pages/contactAfficher.jsp" /><!-- relie les .do aux .jsp -->
-	<action path="/AfficherContact" type="org.lip6.struts.servletAction.AfficherContactAction" name="AfficherContactValidationForm" scope="request"
+	<action path="/AfficherContact" type="org.lip6.struts.servletAction.AfficherListeContactAction" name="AfficherListeContactValidationForm" scope="request"
 			input="/pages/contactAfficher.jsp">
 		<forward name="success" path="/pages/contactAfficher.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
+	
+	<!-- ========== Afficher infos contact =========================== -->
+	<action path="/ContactAfficherInfos" forward="/pages/contactModification.jsp" /><!-- relie les .do aux .jsp -->
+	<action path="/AfficherInfosContact" type="org.lip6.struts.servletAction.AfficherInfosContactAction" name="AfficherContactValidationForm" scope="request"
+			input="/pages/contactAfficher.jsp">
+		<forward name="success" path="/pages/contactModification.jsp" /> <forward name="error" path="/pages/error.jsp" />
+	</action>
+	
 	
 	</action-mappings>
 	
