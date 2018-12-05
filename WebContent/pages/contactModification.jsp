@@ -14,7 +14,6 @@
 <% 
 Contact c = new Contact();
 c = (Contact)request.getAttribute("contact");
-request.s
 %>
 
 
@@ -52,7 +51,8 @@ request.s
             E-mail address
 </td>
 <td align="left">
-<html:text property="email" size="30" maxlength="30"/> </td>
+<% out.println("<input type=\"text\" name=\"email\" size=\"30\" maxlength=\"30\" value=\""+c.getEmail()+"\">"); %>
+</td>
 </tr>
 <tr>
 <td align="right"> Autre
