@@ -16,25 +16,24 @@ CREATE TABLE Telephone (
  TelephoneNumero INT(10) NOT NULL,
  FKTelephoneContactId INT NOT NULL,
  DescriptionNumero VARCHAR(255),
- PRIMARY KEY (TelephoneId));
-
-CREATE TABLE Groupe (
- GroupeId INT NOT NULL AUTO_INCREMENT,
- FKGroupeNameId INT NOT NULL,
- FKGroupeContactId INT NOT NULL,
- PRIMARY KEY (GroupeId));
+ PRIMARY KEY (TelephoneId),
+  CONSTRAINT FKTelToContact FOREIGN KEY (FKTelephoneContactId) REFERENCES Contact(ContactId) ON DELETE CASCADE
+ );
  
  CREATE TABLE GroupeName (
  GroupeNameId INT NOT NULL AUTO_INCREMENT,
  GroupeNom VARCHAR(255) NOT NULL,
  PRIMARY KEY (GroupeNameId));
+ 
+ CREATE TABLE Groupe (
+ GroupeId INT NOT NULL AUTO_INCREMENT,
+ FKGroupeNameId INT NOT NULL,
+ FKGroupeContactId INT NOT NULL,
+ PRIMARY KEY (GroupeId),
+ CONSTRAINT FKGroupeToGroupeName FOREIGN KEY (FKGroupeNameId) REFERENCES GroupeName(GroupeNameId) ON DELETE CASCADE,
+ CONSTRAINT FKContactToContactId FOREIGN KEY (FKGroupeContactId) REFERENCES Contact(ContactId) ON DELETE CASCADE
+ );
 
-ALTER TABLE Telephone
-ADD FOREIGN KEY (FKTelephoneContactId) REFERENCES Contact(ContactId);
-
-ALTER TABLE Groupe
-ADD FOREIGN KEY (FKGroupeContactId) REFERENCES Contact(ContactId);
-ADD FOREIGN KEY (FKGroupeNameId) REFERENCES GroupeName(GroupeNameId);
 
 INSERT INTO GroupeName(GroupeNom) VALUES("ALL");
 
