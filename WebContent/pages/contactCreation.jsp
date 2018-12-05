@@ -61,13 +61,11 @@ import ="java.util.List"%>
 	   if((i%2)==1){
 		   out.println("</tr><tr>");
 	   }
-	   //out.println(  "<td><bean:write name=\""+liste.get(i).getNom()+"\" property=\""+liste.get(i).getId()+"\"/></td>");
-	   //out.println("<bean:define id=\"valeur\" name=\"utilisateur\" property =\"idUtilisateur\"/>");
 	   out.println("<td><input type=\"checkbox\" id=\""+liste.get(i).getId()+"\" name=\"idGroupes\" value=\""+liste.get(i).getId()+"\"> <label for=\""+liste.get(i).getId()+"\">"+liste.get(i).getNom()+"</label></td>");
-	   //out.println("<td><html:checkbox name=\"utilisateurForm\" property=\"idGroupes\" value=\""+liste.get(i).getId()+"\"/></td>");
    }
    %>
 <tr>
+<% out.println("<td><input type=\"checkbox\" id=\"1\" name=\"idGroupes\" value=\"1\" style=\"visibility:hidden\" checked></td>"); %>
 <td align="right"> <html:submit>Save</html:submit>
 </td> </tr>
   </table>

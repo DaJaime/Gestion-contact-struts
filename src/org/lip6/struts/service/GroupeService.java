@@ -22,12 +22,6 @@ public class GroupeService {
 		final String lError = dao.addGroupe(name);
 		return lError;
 	}
-	
-	public String addContactAllGroupe(String idContact) 
-	{
-		final String lError = dao.addContactAllGroupe(idContact);
-		return lError;
-	}
 
 	public String addContactOnGroupe(String idContact, String idGroupe){
 		final String lError = dao.addContactOnGroupe(idContact, idGroupe);

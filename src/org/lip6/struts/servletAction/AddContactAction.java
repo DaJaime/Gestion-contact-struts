@@ -1,5 +1,9 @@
 package org.lip6.struts.servletAction;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -22,16 +26,15 @@ public class AddContactAction extends Action
 		final String email = lForm.getEmail();
 		final String autre = lForm.getAutre();
 		final String[] idGroupes = lForm.getIdGroupes();
+		String lError = "";
         // create a new Contact
 		final ContactService contactService = new ContactService();
 		final String id = contactService.addContact(firstName, lastName, adresse, email, autre);
 		GroupeService gs = new GroupeService();
-		String lError = gs.addContactAllGroupe(id);
-		if(idGroupes.length>0){
-			for(int i=0;i<idGroupes.length;i++){
-				lError = gs.addContactOnGroupe(id, idGroupes[i]);
-			}
+		for(int i=0;i<idGroupes.length;i++){
+			lError = gs.addContactOnGroupe(id, idGroupes[i]);
 		}
+		
 		
 		if(lError == null)
 		{
