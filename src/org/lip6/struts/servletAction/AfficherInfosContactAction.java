@@ -25,7 +25,7 @@ import org.lip6.struts.domain.Contact;
 import org.lip6.struts.domain.DAOContact;
 import org.lip6.struts.service.ContactService;
 
-public class AfficherContactAction extends Action
+public class AfficherInfosContactAction extends Action
 {
 	public ActionForward execute(final ActionMapping pMapping, ActionForm pForm,
 			final HttpServletRequest pRequest,final HttpServletResponse pResponse) throws ServletException, IOException
@@ -34,7 +34,7 @@ public class AfficherContactAction extends Action
         // Suppression du contact
 		final ContactService contactService = new ContactService();
 		Contact c  = new Contact();
-		long id=0;
+		long id =  Long.parseLong(pRequest.getParameter("id"), 10) ;
 		try 
 		{
 			c = contactService.afficherContact(id);

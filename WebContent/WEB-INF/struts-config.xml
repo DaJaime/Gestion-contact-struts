@@ -12,7 +12,7 @@
 		<form-bean name="UpdateContactValidationForm" type="org.lip6.struts.actionForm.UpdateContactValidationForm"/>
 		<!-- Afficher contact -->
 		<form-bean name="AfficherContactValidationForm" type="org.lip6.struts.actionForm.AfficherContactValidationForm"/>
-		<!-- créer un groupe -->
+		<!-- crï¿½er un groupe -->
 		<form-bean name="AddGroupeValidationForm" type="org.lip6.struts.actionForm.AddGroupeValidationForm"/>
 	</form-beans>
 	
@@ -38,19 +38,27 @@
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
 	
-	<!-- ========== Afficher un contact =========================== -->
+	<!-- ========== Afficher liste contact =========================== -->
 	<action path="/ContactAfficher" forward="/pages/contactAfficher.jsp" /><!-- relie les .do aux .jsp -->
-	<action path="/AfficherContact" type="org.lip6.struts.servletAction.AfficherContactAction" name="AfficherContactValidationForm" scope="request"
+	<action path="/AfficherContact" type="org.lip6.struts.servletAction.AfficherListeContactAction" name="AfficherListeContactValidationForm" scope="request"
 			input="/pages/contactAfficher.jsp">
 		<forward name="success" path="/pages/contactAfficher.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
 	
-			<!-- ========== Création d'un groupe =========================== -->
+			<!-- ========== Crï¿½ation d'un groupe =========================== -->
 	<action path="/GroupeCreation" forward="/pages/groupeCreation.jsp" />
 	<action path="/AddGroupe" type="org.lip6.struts.servletAction.AddGroupeAction" name="AddGroupeValidationForm" scope="request"
 			input="/pages/groupeCreation.jsp">
 		<forward name="success" path="/pages/success.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
+	
+	<!-- ========== Afficher infos contact =========================== -->
+	<action path="/ContactAfficherInfos" forward="/pages/contactModification.jsp" /><!-- relie les .do aux .jsp -->
+	<action path="/AfficherInfosContact" type="org.lip6.struts.servletAction.AfficherInfosContactAction" name="AfficherContactValidationForm" scope="request"
+			input="/pages/contactAfficher.jsp">
+		<forward name="success" path="/pages/contactModification.jsp" /> <forward name="error" path="/pages/error.jsp" />
+	</action>
+	
 	
 	</action-mappings>
 	

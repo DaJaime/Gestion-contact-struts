@@ -108,14 +108,14 @@ public class DAOContact
 		
 	}
 	
-	public ResultSet afficherContact(){
+	public ResultSet afficherListeContact(){
 		try
 		{
 			final Context lContext = new InitialContext();
 			final DataSource lDataSource = (DataSource)
 			lContext.lookup(RESOURCE_JDBC);
 			final Connection lConnection = lDataSource.getConnection();
-			 // delete a new contact
+			 // afficher la liste des contact
 			String requ = "SELECT * FROM contact";
 			ResultSet result=lConnection.createStatement().executeQuery(requ);
 			return result;
@@ -129,6 +129,54 @@ public class DAOContact
 			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
 		}
 		return null;
+	}
+	
+	public ResultSet afficherContact(final long id)
+	{
+		/*Context lContext;
+		try 
+		{
+			lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			// Update contact
+			String req= "select * from contact where ContactId=2";
+			final PreparedStatement lPreparedStatementCreation = lConnection.prepareStatement(req);
+			lPreparedStatementCreation.setLong(1, id);
+			ResultSet res = lPreparedStatementCreation.executeQuery();
+			return res;
+		} 
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans l'ajout de la BDD : " + e.getMessage());
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+		}
+		return null; */
+		try
+		{
+			final Context lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			 // afficher la liste des contact
+			String requ = "select * from contact where ContactId="+id;
+			ResultSet result=lConnection.createStatement().executeQuery(requ);
+			return result;
+		}
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans la lecture de la BDD : " + e.getMessage());
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+		}
+		return null;
+		
 	}
 	
 	

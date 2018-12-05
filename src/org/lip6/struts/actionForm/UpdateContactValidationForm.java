@@ -11,7 +11,7 @@ public class UpdateContactValidationForm extends ActionForm
 {
 	private static final long serialVersionUID = 1L;
 	
-	private long id=0;
+	private long id=2;
 	private String firstName=null; 
 	private String lastName=null; 
 	private String adresse=null;
@@ -67,6 +67,7 @@ public class UpdateContactValidationForm extends ActionForm
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
 	{ 
 		ActionErrors errors = new ActionErrors();
+		System.out.println(getEmail());
 		if( getFirstName()== null || getFirstName().length() < 1 )
 		{ 
 			errors.add("first name",new ActionMessage("creation.fn.error.required")); 
