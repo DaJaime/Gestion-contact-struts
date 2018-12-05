@@ -29,8 +29,6 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		          <a class="dropdown-item" href="ContactCreation.do">Créer un contact</a>
-		          <a class="dropdown-item" href="ContactModification.do">Modifier un contact</a>
-		          <a class="dropdown-item" href="ContactSuppression.do">Supprimer un contact</a>
 		          <html:link action="/AfficherContact">Afficher tous les contacts</html:link>
 		        </div>
 		      </li>

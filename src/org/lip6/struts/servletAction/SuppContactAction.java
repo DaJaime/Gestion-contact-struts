@@ -15,8 +15,8 @@ public class SuppContactAction extends Action
 			final HttpServletRequest pRequest,final HttpServletResponse pResponse)
 	{
 		final SuppContactValidationForm lForm=(SuppContactValidationForm)pForm;
-		final long id = lForm.getId();
         // Suppression du contact
+		long id =  Long.parseLong(pRequest.getParameter("id"), 10) ;
 		final ContactService contactService = new ContactService();
 		final String lError = contactService.deleteContact(id);
 		

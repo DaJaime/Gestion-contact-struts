@@ -67,6 +67,7 @@ public class UpdateContactValidationForm extends ActionForm
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
 	{ 
 		ActionErrors errors = new ActionErrors();
+		System.out.println(getEmail());
 		if( getFirstName()== null || getFirstName().length() < 1 )
 		{ 
 			errors.add("first name",new ActionMessage("creation.fn.error.required")); 

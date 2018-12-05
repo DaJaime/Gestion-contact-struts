@@ -10,20 +10,13 @@ import org.apache.struts.action.ActionMessage;
 public class SuppContactValidationForm extends ActionForm{
 
 	private static final long serialVersionUID = 1L;
-	private long id = 0;
-	
-	public long getId()
-	{ return id; }
-
-	public void setId(long l)
-	{ id = l; }
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
 	{ 
 		ActionErrors errors = new ActionErrors();
-		if( getId() < 0)
+		if(request.getParameter("id")== null)
 		{ 
-			errors.add("id",new ActionMessage("creation.id.error.required")); 
+			errors.add("Pas de ID",new ActionMessage("creation.fn.error.required")); 
 		}
 		
 		return errors; 

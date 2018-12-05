@@ -16,7 +16,7 @@ public class AfficherContactValidationForm extends ActionForm
 		System.out.println(request.getParameter("name"));
 		
 		ActionErrors errors = new ActionErrors();
-		if(request.getParameter("name")== null)
+		if(request.getParameter("id")== null)
 		{ 
 			errors.add("Pas de ID",new ActionMessage("creation.fn.error.required")); 
 		}

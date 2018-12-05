@@ -46,8 +46,9 @@ for(int i = 0;i<liste.size();i++)
 	out.println("<td>" + liste.get(i).getAdresse()+ "</td>");
 	out.println("<td>" + liste.get(i).getEmail()+ "</td>");
 	out.println("<td>" + liste.get(i).getAutre()+ "</td>");
-	pageContext.setAttribute("user", liste.get(i).getId());%>
-	<td><html:link action="/AfficherInfosContact" paramName="user" paramId="name" scope="request" >Modifier</html:link></td>
+	pageContext.setAttribute("id", liste.get(i).getId());%>
+	<td><html:link action="/AfficherInfosContact" paramName="id" paramId="id" scope="request" >Modifier</html:link></td>
+	<td><html:link action="/SuppContact" paramName="id" paramId="id" scope="request" >Supprimer</html:link></td>
 	</tr><%
 }
 

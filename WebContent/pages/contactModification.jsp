@@ -33,18 +33,18 @@ c = (Contact)request.getAttribute("contact");
 <td align="right"> First Name
 </td>
 <td align="left">
-<html:text property="firstName" size="30" maxlength="30"/> </td>
+<% out.println("<input type=\"text\" name=\"firstName\" size=\"30\" maxlength=\"30\" value=\""+c.getFirstName()+"\">"); %> </td>
 </tr> <tr>
 <td align="right"> Last Name
 </td>
 <td align="left">
-<html:text property="lastName" size="30" maxlength="30"/> </td>
+<% out.println("<input type=\"text\" name=\"lastName\" size=\"30\" maxlength=\"30\" value=\""+c.getLastName()+"\">"); %> </td>
 </tr>
 <tr>
 <td align="right"> Adresse
 </td>
 <td align="left">
-<html:text property="adresse" size="30" maxlength="30"/> </td>
+<% out.println("<input type=\"text\" name=\"adresse\" size=\"30\" maxlength=\"30\" value=\""+c.getAdresse()+"\">"); %> </td>
 </tr>
 <tr>
 <td align="right">
@@ -58,10 +58,11 @@ c = (Contact)request.getAttribute("contact");
 <td align="right"> Autre
 </td>
 <td align="left">
-<html:text property="autre" size="30" maxlength="30"/> </td>
+<% out.println("<input type=\"text\" name=\"autre\" size=\"30\" maxlength=\"30\" value=\""+c.getAutre()+"\">"); %>
+ </td>
+ <% out.println("<input type=\"hidden\" name=\"id\" size=\"30\" maxlength=\"30\" value=\""+c.getId()+"\">"); %>
 </tr>
 <tr>
-<input type="hidden" name="id" value="" />
 <td align="right"> <html:submit>Save</html:submit>
 </td> </tr>
   </table>

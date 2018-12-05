@@ -34,7 +34,7 @@ public class AfficherInfosContactAction extends Action
         // Suppression du contact
 		final ContactService contactService = new ContactService();
 		Contact c  = new Contact();
-		long id =  Long.parseLong(pRequest.getParameter("name"), 10) ;
+		long id =  Long.parseLong(pRequest.getParameter("id"), 10) ;
 		try 
 		{
 			c = contactService.afficherContact(id);
