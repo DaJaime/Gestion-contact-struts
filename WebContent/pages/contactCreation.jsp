@@ -45,6 +45,18 @@ import ="java.util.List"%>
 <html:text property="email" size="30" maxlength="30"/> </td>
 </tr>
 <tr>
+<td align="right"> Téléphone
+</td>
+<td align="left">
+<html:text property="telephone" size="30" maxlength="30"/> </td>
+</tr>
+<tr>
+<td align="right"> Téléphone description
+</td>
+<td align="left">
+<html:text property="telephoneDescription" size="30" maxlength="30"/> </td>
+</tr>
+<tr>
 <td align="right"> Autre
 </td>
 <td align="left">

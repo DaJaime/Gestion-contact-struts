@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMapping;
 import org.lip6.struts.actionForm.AddContactValidationForm;
 import org.lip6.struts.service.ContactService;
 import org.lip6.struts.service.GroupeService;
+import org.lip6.struts.service.TelephoneService;
 
 public class AddContactAction extends Action
 {
@@ -25,6 +26,8 @@ public class AddContactAction extends Action
 		final String adresse = lForm.getAdresse();
 		final String email = lForm.getEmail();
 		final String autre = lForm.getAutre();
+		final String numero = lForm.getTelephone();
+		final String description = lForm.getTelephoneDescription();
 		final String[] idGroupes = lForm.getIdGroupes();
 		String lError = "";
         // create a new Contact
@@ -34,6 +37,8 @@ public class AddContactAction extends Action
 		for(int i=0;i<idGroupes.length;i++){
 			lError = gs.addContactOnGroupe(id, idGroupes[i]);
 		}
+		TelephoneService tel = new TelephoneService();
+		tel.addTelephone(numero, id, description);
 		
 		
 		if(lError == null)

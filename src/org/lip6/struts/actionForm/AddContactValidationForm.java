@@ -20,6 +20,8 @@ public class AddContactValidationForm extends ActionForm
 	private String lastName=null; 
 	private String adresse=null;
 	private String email=null;
+	private String telephone=null;
+	private String telephoneDescription=null;
 	private String autre=null;
 	private String[]  idGroupes=null;
 	
@@ -29,6 +31,9 @@ public class AddContactValidationForm extends ActionForm
 	}
 	public String getEmail() 
 	{ return email; }
+	
+	public String getTelephoneDescription() 
+	{ return telephoneDescription; }
 
 	public String getFirstName()
 	{ return firstName;}
@@ -39,6 +44,9 @@ public class AddContactValidationForm extends ActionForm
 	public String getAdresse() 
 	{ return adresse;}
 	
+	public String getTelephone() 
+	{ return telephone;}
+	
 	public String getAutre() 
 	{ return autre;}
 	
@@ -48,6 +56,12 @@ public class AddContactValidationForm extends ActionForm
 
 	public void setAutre(String string) 
 	{ autre = string;}
+	
+	public void setTelephoneDescription(String string) 
+	{ telephoneDescription= string; }
+	
+	public void setTelephone(String string) 
+	{ telephone = string;}
 	
 	public void setAdresse(String string) 
 	{ adresse = string;}
@@ -73,6 +87,7 @@ public class AddContactValidationForm extends ActionForm
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request )
 	{ 
+		System.out.print(getTelephone());
 		ActionErrors errors = new ActionErrors();
 		if( getFirstName()== null || getFirstName().length() < 1 )
 		{ 
@@ -82,6 +97,11 @@ public class AddContactValidationForm extends ActionForm
 		if( getLastName()== null || getLastName().length() < 1 )
 		{ 
 			errors.add("last name",new ActionMessage("creation.ln.error.required")); 
+		}
+		
+		if(getTelephone()==null || getTelephone().length() != 10)
+		{
+			errors.add("telephone",new ActionMessage("creation.lp.error.required"));
 		}
 		
 		return errors; 

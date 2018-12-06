@@ -9,7 +9,7 @@ public class Contact
 	private String firstName;
 	private String lastName;
 	private String email;
-	private List<String> tel;
+	private List<Telephone> tel;
 	private String adresse;
 	private String autre;
 	
@@ -36,7 +36,7 @@ public class Contact
 	public String getLastName()
 	{ return lastName; }
 	
-	public List<String> getTel()
+	public List<Telephone> getTel()
 	{ return tel; }
 	
 	public String getAdresse()
@@ -60,7 +60,7 @@ public class Contact
 	public void setAutre(String string)
 	{ autre = string;}
 	
-	public void setTel(List<String> list)
+	public void setTel(List<Telephone> list)
 	{ tel = list;}
 
 	public long getId()
