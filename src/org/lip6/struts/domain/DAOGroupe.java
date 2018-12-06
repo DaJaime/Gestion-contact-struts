@@ -92,7 +92,7 @@ public class DAOGroupe {
 		return null;
 	}
 	
-	public ResultSet afficherGroupe(String idGroupe){
+	public ResultSet afficherGroupeNameUnique(String id){
 		try
 		{
 			final Context lContext = new InitialContext();
@@ -100,7 +100,30 @@ public class DAOGroupe {
 			lContext.lookup(RESOURCE_JDBC);
 			final Connection lConnection = lDataSource.getConnection();
 			 // delete a new contact
-			String requ = "SELECT * FROM GroupeName";
+			String requ = "SELECT * FROM GroupeName where GroupeNameId="+id+"";
+			ResultSet result=lConnection.createStatement().executeQuery(requ);
+			return result;
+		}
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans la lecture de la BDD : " + e.getMessage());
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+		}
+		return null;
+	}
+	
+	public ResultSet afficherContactListeGroupe(String idGroupe){
+		try
+		{
+			final Context lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			 // delete a new contact
+			String requ = "select contact.* from contact, groupe where contact.ContactId = groupe.FKGroupeContactId  and FKGroupeNameId = "+idGroupe+";";
 			ResultSet result=lConnection.createStatement().executeQuery(requ);
 			return result;
 		}

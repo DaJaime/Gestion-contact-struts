@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lip6.struts.domain.Contact;
 import org.lip6.struts.domain.DAOGroupe;
 import org.lip6.struts.domain.Groupe;
 
@@ -38,6 +39,39 @@ public class GroupeService {
 			Groupe g = new Groupe(resu.getString(1),resu.getString(2));
 			liste.add(g);
 			}
+		return liste;
+	}
+	
+	public List<Groupe> afficherGroupeNameUnique(String id) throws SQLException{
+		List<Groupe> liste = new ArrayList<Groupe>();
+		final ResultSet resu = dao.afficherGroupeNameUnique(id);
+		if (resu == null){
+			return liste;
+		}
+		while (resu.next()) {
+			Groupe g = new Groupe(resu.getString(1),resu.getString(2));
+			liste.add(g);
+			}
+		return liste;
+	}
+	
+	public List<Contact> afficherContactListeGroupe(String idGroupe) throws SQLException{
+		List<Contact> liste = new ArrayList<Contact>();
+		final ResultSet resu = dao.afficherContactListeGroupe(idGroupe);
+		if (resu == null){
+			return liste;
+		}
+		while (resu.next()) 
+		{    
+			long id =  Long.parseLong(resu.getString("ContactId"), 10) ;
+			String nom = resu.getString("ContactNom");
+			String prenom = resu.getString("ContactPrenom");
+			String adresse = resu.getString("ContactAdresse");
+			String email = resu.getString("ContactMail");
+			String autre = resu.getString("ContactAutre");
+			Contact contact = new Contact(id,nom,prenom,adresse,email,autre);
+			liste.add(contact);
+		}
 		return liste;
 	}
 }

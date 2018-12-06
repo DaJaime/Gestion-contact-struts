@@ -4,8 +4,7 @@
     import ="java.util.ArrayList"
 	import ="java.util.List"
 	import ="java.util.Iterator"
-	import = "org.lip6.struts.domain.Contact"
-	import = "org.lip6.struts.domain.Telephone" %>
+	import = "org.lip6.struts.domain.Contact" 
 	import = "org.lip6.struts.service.GroupeService"
 	import = "org.lip6.struts.domain.Groupe"%>
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
@@ -20,11 +19,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
+<% String nomGroupe =  (String) request.getAttribute("nomGroupe"); %>
 <title>Liste Contact</title>
 </head>
 <body>
-<h1>Tous vos contacts</h1>
+<h1><% out.println(nomGroupe); %></h1>
 <p>Groupe :</p>
 <html:form action="/AfficherContactGroupe">
     <SELECT name="id">
@@ -47,34 +46,24 @@
 	<th>Adresse</th>
 	<th>Mail</th>
 	<th>Note</th>
-	<th>Téléphone</th>
 	<th>Modifier</th>
-	<th>Supprimer</th>
 </tr>
 <% 
 
 List<Contact> liste = new ArrayList<Contact>();
-List<Telephone> tel = new ArrayList<Telephone>();
 liste = (ArrayList<Contact>) request.getAttribute("liste");
 int cpt = 0;
 out.println("<tr>");
 
 for(int i = 0;i<liste.size();i++)
 {
-	pageContext.setAttribute("id", liste.get(i).getId());
 	out.println("<tr>");
 	out.println("<td>" + liste.get(i).getLastName()+ "</td>");
 	out.println("<td>" + liste.get(i).getFirstName()+ "</td>");
 	out.println("<td>" + liste.get(i).getAdresse()+ "</td>");
 	out.println("<td>" + liste.get(i).getEmail()+ "</td>");
 	out.println("<td>" + liste.get(i).getAutre()+ "</td>");
-	tel = (ArrayList<Telephone>) liste.get(i).getTel();
-		for(int y=0;y<tel.size();y++)
-		{
-			out.println("<td>"+ tel.get(y).getDescription() + " " + tel.get(y).getNumero() +"</td>");
-		}
-	
-	%>
+	pageContext.setAttribute("id", liste.get(i).getId());%>
 	<td><html:link action="/AfficherInfosContact" paramName="id" paramId="id" scope="request" >Modifier</html:link></td>
 	<td><html:link action="/SuppContact" paramName="id" paramId="id" scope="request" >Supprimer</html:link></td>
 	</tr><%
