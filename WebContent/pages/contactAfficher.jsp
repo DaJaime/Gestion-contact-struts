@@ -5,7 +5,7 @@
 	import ="java.util.List"
 	import ="java.util.Iterator"
 	import = "org.lip6.struts.domain.Contact"
-	import = "org.lip6.struts.domain.Telephone" %>
+	import = "org.lip6.struts.domain.Telephone"
 	import = "org.lip6.struts.service.GroupeService"
 	import = "org.lip6.struts.domain.Groupe"%>
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
