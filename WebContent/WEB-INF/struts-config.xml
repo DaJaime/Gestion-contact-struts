@@ -12,8 +12,10 @@
 		<form-bean name="UpdateContactValidationForm" type="org.lip6.struts.actionForm.UpdateContactValidationForm"/>
 		<!-- Afficher contact -->
 		<form-bean name="AfficherContactValidationForm" type="org.lip6.struts.actionForm.AfficherContactValidationForm"/>
-		<!-- cr�er un groupe -->
+		<!-- creer un groupe -->
 		<form-bean name="AddGroupeValidationForm" type="org.lip6.struts.actionForm.AddGroupeValidationForm"/>
+		<!-- afficher les contacts d'un groupe -->
+		<form-bean name="AfficherContactGroupeValidationForm" type="org.lip6.struts.actionForm.AfficherContactGroupeValidationForm"/>
 	</form-beans>
 	
 	<action-mappings>
@@ -57,6 +59,13 @@
 	<action path="/AfficherInfosContact" type="org.lip6.struts.servletAction.AfficherInfosContactAction" name="AfficherContactValidationForm" scope="request"
 			input="/pages/contactAfficher.jsp">
 		<forward name="success" path="/pages/contactModification.jsp" /> <forward name="error" path="/pages/error.jsp" />
+	</action>
+	
+		<!-- ========== Afficher contact groupe =========================== -->
+	<action path="/AfficherContactGroupe" forward="/pages/contactAfficherGroupe.jsp" /><!-- relie les .do aux .jsp -->
+	<action path="/AfficherContactGroupe" type="org.lip6.struts.servletAction.AfficherContactGroupeAction" name="AfficherContactGroupeValidationForm" scope="request"
+			input="/pages/contactAfficherGroupe.jsp">
+		<forward name="success" path="/pages/contactAfficherGroupe.jsp" /> <forward name="error" path="/pages/error.jsp" />
 	</action>
 	
 	
