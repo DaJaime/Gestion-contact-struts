@@ -8,6 +8,7 @@ import java.util.List;
 import org.lip6.struts.domain.Contact;
 import org.lip6.struts.domain.DAOGroupe;
 import org.lip6.struts.domain.Groupe;
+import org.lip6.struts.domain.Telephone;
 
 public class GroupeService {
 	private DAOGroupe dao;
@@ -69,7 +70,14 @@ public class GroupeService {
 			String adresse = resu.getString("ContactAdresse");
 			String email = resu.getString("ContactMail");
 			String autre = resu.getString("ContactAutre");
+			String numero = resu.getString("TelephoneNumero");
+			String description = resu.getString("DescriptionNumero");
+			String idTel = resu.getString("TelephoneId");
 			Contact contact = new Contact(id,nom,prenom,adresse,email,autre);
+			Telephone t = new Telephone(idTel, numero, description);
+			List<Telephone> tel = new ArrayList<Telephone>();
+			tel.add(t);
+			contact.setTel(tel);
 			liste.add(contact);
 		}
 		return liste;

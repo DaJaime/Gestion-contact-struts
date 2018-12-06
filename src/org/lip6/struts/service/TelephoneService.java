@@ -16,5 +16,11 @@ public class TelephoneService
 		final String lError = dao.addTelephone(numero, idContact, description);
 		return lError;
 	}
+	
+	public String updateTelephone(String numero, String idContact, String description) 
+	{
+		final String lError = dao.updateTelephone(numero, idContact, description);
+		return lError;
+	}
 
 }

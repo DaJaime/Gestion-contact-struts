@@ -140,7 +140,7 @@ public class DAOContact
 			lContext.lookup(RESOURCE_JDBC);
 			final Connection lConnection = lDataSource.getConnection();
 			 // afficher la liste des contact
-			String requ = "select * from contact where ContactId="+id;
+			String requ = "SELECT * FROM contact,telephone where contactid=fktelephonecontactid and ContactId = "+id+"";
 			ResultSet result=lConnection.createStatement().executeQuery(requ);
 			return result;
 		}

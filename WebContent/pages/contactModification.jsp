@@ -58,7 +58,7 @@ tel = (ArrayList<Telephone>) c.getTel();
 </td>
 </tr>
 <% 
-/*for(int i = 0;i<tel.size();i++)
+for(int i = 0;i<tel.size();i++)
 {
 	 out.println("</tr>");
 	 out.println("<td align=\"right\">");
@@ -71,13 +71,13 @@ tel = (ArrayList<Telephone>) c.getTel();
 	 out.println("</tr>");
 	 out.println("<tr>");
 	 out.println("<td align=\"right\">");
-	 out.println("Description address");            
+	 out.println("Description telephone");            
 	 out.println("</td>");
 	 out.println("<td align=\"left\">");
 	 out.println("<input type=\"text\" name=\"descriptionTel\" size=\"30\" maxlength=\"30\" value=\""+tel.get(i).getDescription()+"\">"); 
 	 out.println("</td>");
 	 out.println("</tr>");
-}*/
+}
 %>
 <tr>
 <td align="right"> Autre

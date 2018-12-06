@@ -74,13 +74,20 @@ public class ContactService
 		}
 		while (resu.next()) 
 		{    
-			long idi =  Long.parseLong(resu.getString("ContactId"), 10);
-			contact.setId(idi);
-			contact.setLastName(resu.getString("ContactNom"));
-			contact.setFirstName(resu.getString("ContactPrenom"));
-			contact.setAdresse(resu.getString("ContactAdresse"));
-			contact.setEmail(resu.getString("ContactMail"));
-			contact.setAutre(resu.getString("ContactAutre"));
+			long idi =  Long.parseLong(resu.getString("ContactId"), 10) ;
+			String nom = resu.getString("ContactNom");
+			String prenom = resu.getString("ContactPrenom");
+			String adresse = resu.getString("ContactAdresse");
+			String email = resu.getString("ContactMail");
+			String autre = resu.getString("ContactAutre");
+			String numero = resu.getString("TelephoneNumero");
+			String description = resu.getString("DescriptionNumero");
+			String idTel = resu.getString("TelephoneId");
+			contact = new Contact(idi,nom,prenom,adresse,email,autre);
+			Telephone t = new Telephone(idTel, numero, description);
+			List<Telephone> tel = new ArrayList<Telephone>();
+			tel.add(t);
+			contact.setTel(tel);
 		}
 		return contact;
 	}

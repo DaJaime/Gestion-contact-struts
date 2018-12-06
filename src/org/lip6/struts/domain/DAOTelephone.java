@@ -43,5 +43,43 @@ private final static String RESOURCE_JDBC = "java:comp/env/jdbc/ContactBD";
 			return "Erreur dans la requete SQL: " + e.getMessage();
 		} 
 	}
+	
+	
+	
+	public String updateTelephone(String numero,String id,String description)
+	{
+		Context lContext;
+		try 
+		{
+			System.out.println(numero);
+			System.out.println(id);
+			System.out.println(description);
+			int num  = Integer.parseInt(numero); 
+			lContext = new InitialContext();
+			final DataSource lDataSource = (DataSource)
+			lContext.lookup(RESOURCE_JDBC);
+			final Connection lConnection = lDataSource.getConnection();
+			// Update contact
+			final PreparedStatement lPreparedStatementCreation = lConnection.prepareStatement
+					("update TELEPHONE set TelephoneNumero=?, DescriptionNumero=? where fktelephonecontactid=?");
+			lPreparedStatementCreation.setInt(1, num);
+			lPreparedStatementCreation.setString(2, description);
+			lPreparedStatementCreation.setString(3, id);
+			lPreparedStatementCreation.executeUpdate();
+			return null;
+		} 
+		catch (NamingException e)
+		{
+			System.out.println("Erreur dans l'ajout de la BDD : " + e.getMessage());
+			return "Erreur dans la modification de la BDD : " + e.getMessage();
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Erreur dans la requete SQL: " + e.getMessage());
+			return "Erreur dans la requete SQL: " + e.getMessage();
+		} 
+		
+	}
+	
 
 }

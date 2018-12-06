@@ -123,7 +123,7 @@ public class DAOGroupe {
 			lContext.lookup(RESOURCE_JDBC);
 			final Connection lConnection = lDataSource.getConnection();
 			 // delete a new contact
-			String requ = "select contact.* from contact, groupe where contact.ContactId = groupe.FKGroupeContactId  and FKGroupeNameId = "+idGroupe+";";
+			String requ = "select * from contact,groupe,telephone where contact.ContactId = groupe.FKGroupeContactId  and FKGroupeNameId = "+idGroupe+" and contact.contactid=telephone.fktelephonecontactid;";
 			ResultSet result=lConnection.createStatement().executeQuery(requ);
 			return result;
 		}

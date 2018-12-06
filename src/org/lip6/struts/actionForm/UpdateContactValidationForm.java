@@ -17,6 +17,8 @@ public class UpdateContactValidationForm extends ActionForm
 	private String adresse=null;
 	private String email=null;
 	private String autre=null;
+	private String numeroTel=null;
+	private String descriptionTel=null;
 	
 	public String getEmail() 
 	{ return email; }
@@ -32,7 +34,19 @@ public class UpdateContactValidationForm extends ActionForm
 	
 	public String getAutre() 
 	{ return autre;}
+	
+	public String getNumeroTel() 
+	{ return numeroTel;}
+	
+	public String getDescriptionTel() 
+	{ return descriptionTel; }
 
+	public void setDescriptionTel(String string) 
+	{ descriptionTel= string; }
+	
+	public void setNumeroTel(String string) 
+	{ numeroTel = string;}
+	
 	public void setAutre(String string) 
 	{ autre = string;}
 	
@@ -76,6 +90,10 @@ public class UpdateContactValidationForm extends ActionForm
 		if( getLastName()== null || getLastName().length() < 1 )
 		{ 
 			errors.add("last name",new ActionMessage("creation.ln.error.required")); 
+		}
+		if(getNumeroTel()==null || getNumeroTel().length() != 10)
+		{
+			errors.add("telephone",new ActionMessage("creation.lp.error.required"));
 		}
 		
 		return errors; 

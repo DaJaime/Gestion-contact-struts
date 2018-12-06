@@ -6,7 +6,8 @@
 	import ="java.util.Iterator"
 	import = "org.lip6.struts.domain.Contact" 
 	import = "org.lip6.struts.service.GroupeService"
-	import = "org.lip6.struts.domain.Groupe"%>
+	import = "org.lip6.struts.domain.Groupe"
+	import = "org.lip6.struts.domain.Telephone" %>
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
 <%@ taglib prefix="bean" uri="http://struts.apache.org/tags-bean" %>
 <%@ taglib prefix="logic" uri="http://struts.apache.org/tags-logic" %>
@@ -46,11 +47,14 @@
 	<th>Adresse</th>
 	<th>Mail</th>
 	<th>Note</th>
+	<th>Téléphone</th>
 	<th>Modifier</th>
+	<th>Supprimer</th>
 </tr>
 <% 
 
 List<Contact> liste = new ArrayList<Contact>();
+List<Telephone> tel = new ArrayList<Telephone>();
 liste = (ArrayList<Contact>) request.getAttribute("liste");
 int cpt = 0;
 out.println("<tr>");
@@ -63,7 +67,17 @@ for(int i = 0;i<liste.size();i++)
 	out.println("<td>" + liste.get(i).getAdresse()+ "</td>");
 	out.println("<td>" + liste.get(i).getEmail()+ "</td>");
 	out.println("<td>" + liste.get(i).getAutre()+ "</td>");
-	pageContext.setAttribute("id", liste.get(i).getId());%>
+	pageContext.setAttribute("id", liste.get(i).getId());
+	tel = (ArrayList<Telephone>) liste.get(i).getTel();
+	for(int y=0;y<tel.size();y++)
+	{
+		out.println("<td>"+ tel.get(y).getDescription() + " " + tel.get(y).getNumero() +"</td>");
+	}
+	
+	%>
+	
+	
+	
 	<td><html:link action="/AfficherInfosContact" paramName="id" paramId="id" scope="request" >Modifier</html:link></td>
 	<td><html:link action="/SuppContact" paramName="id" paramId="id" scope="request" >Supprimer</html:link></td>
 	</tr><%
